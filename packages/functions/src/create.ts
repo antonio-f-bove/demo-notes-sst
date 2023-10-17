@@ -17,6 +17,7 @@ export const main = handler(async (event) => {
     TableName: Table.Notes.tableName,
     Item: {
       // The attributes of the item to be created
+      // BUG: cannot read properties of undefined (reading identityId)
       userId: event.requestContext.authorizer?.iam.congnitoIdentity.identityId, // The id of the author
       noteId: uuid.v1(), // A unique uuid
       content: data.content, // Parsed from request body
