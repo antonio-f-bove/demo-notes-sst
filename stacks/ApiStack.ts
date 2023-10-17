@@ -13,6 +13,8 @@ export function ApiStack({ stack }: StackContext) {
         bind: [table, STRIPE_SECRET_KEY],
       },
     },
+    // Enabled by default
+    cors: true,
     routes: {
       "POST /notes": "packages/functions/src/create.main",
       "GET /notes/{id}": "packages/functions/src/get.main",
